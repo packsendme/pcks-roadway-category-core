@@ -41,12 +41,12 @@ public class Category_Service {
 		}
 	}
 	
-	public ResponseEntity<?> save(CategoryDto CategoryDto) {
+	public ResponseEntity<?> save(CategoryDto categoryDto) {
 		Response<CategoryDto> responseObj = null;
 		try {
-			Category entity = categoryObj.Dto_TO_Entity(CategoryDto, null, RoadwayManagerConstants.ADD_OP_ROADWAY);
+			Category entity = categoryObj.Dto_TO_Entity(categoryDto, null, RoadwayManagerConstants.ADD_OP_ROADWAY);
 			category_DAO.save(entity);
-			responseObj = new Response<CategoryDto>(0,HttpExceptionPackSend.CREATE_ROADWAYBRE.getAction(), CategoryDto);
+			responseObj = new Response<CategoryDto>(0,HttpExceptionPackSend.CREATE_ROADWAYBRE.getAction(), categoryDto);
 			return new ResponseEntity<>(responseObj, HttpStatus.OK);
 		}
 		catch (Exception e) {

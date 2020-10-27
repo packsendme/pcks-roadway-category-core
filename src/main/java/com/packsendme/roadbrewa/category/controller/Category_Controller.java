@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.packsendme.roadbrewa.category.service.Category_Service;
 import com.packsendme.roadbrewa.dto.CategoryDto;
-import com.packsendme.roadbrewa.entity.Category;
 
 @RestController
 @RequestMapping("/roadbrewa")
