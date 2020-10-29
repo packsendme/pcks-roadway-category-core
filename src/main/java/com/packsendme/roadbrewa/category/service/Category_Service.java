@@ -30,7 +30,7 @@ public class Category_Service {
 		Response<CategoryListResponse_Dto> responseObj = null;
 		CategoryListResponse_Dto categoryListResponse_Dto = new CategoryListResponse_Dto();
 		try {
-			categoryListResponse_Dto.categories = categoryObj.Entity_TO_Dto(category_DAO.findAll());
+			categoryListResponse_Dto.categories = categoryObj.entityTOdto(category_DAO.findAll());
 			responseObj = new Response<CategoryListResponse_Dto>(0,HttpExceptionPackSend.CREATED_ROADWAYBRE.getAction(), categoryListResponse_Dto);
 			return new ResponseEntity<>(responseObj, HttpStatus.OK);
 		}
@@ -44,7 +44,7 @@ public class Category_Service {
 	public ResponseEntity<?> save(CategoryDto categoryDto) {
 		Response<CategoryDto> responseObj = null;
 		try {
-			Category entity = categoryObj.Dto_TO_Entity(categoryDto, null, RoadwayManagerConstants.ADD_OP_ROADWAY);
+			Category entity = categoryObj.dtoTOentity(categoryDto, null, RoadwayManagerConstants.ADD_OP_ROADWAY);
 			category_DAO.save(entity);
 			responseObj = new Response<CategoryDto>(0,HttpExceptionPackSend.CREATE_ROADWAYBRE.getAction(), categoryDto);
 			return new ResponseEntity<>(responseObj, HttpStatus.OK);
@@ -115,7 +115,7 @@ public class Category_Service {
 			Optional<Category> categoryData = category_DAO.findOneById(id);
 			if(categoryData.isPresent()) {
 				Category entity = categoryData.get(); 
-				entity = categoryObj.Dto_TO_Entity(categoryDto, entity, RoadwayManagerConstants.UPDATE_OP_ROADWAY);
+				entity = categoryObj.dtoTOentity(categoryDto, entity, RoadwayManagerConstants.UPDATE_OP_ROADWAY);
 				entity = category_DAO.update(entity);
 				responseObj = new Response<String>(0,HttpExceptionPackSend.UPDATE_ROADWAY.getAction(), entity.id);
 				return new ResponseEntity<>(responseObj, HttpStatus.ACCEPTED);
@@ -139,7 +139,7 @@ public class Category_Service {
 
 		try {
 			List<Category> categories_L = category_DAO.findEntityByParameters(name);
-			categoryListDTO_Response.categories = categoryObj.Entity_TO_Dto(categories_L);
+			categoryListDTO_Response.categories = categoryObj.entityTOdto(categories_L);
 			responseObj = new Response<CategoryListResponse_Dto>(0,HttpExceptionPackSend.CREATED_CATEGORY.getAction(), categoryListDTO_Response);
 			return new ResponseEntity<>(responseObj, HttpStatus.OK);
 		}

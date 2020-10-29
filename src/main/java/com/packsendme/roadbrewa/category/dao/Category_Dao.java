@@ -14,7 +14,7 @@ import com.packsendme.roadbrewa.entity.Category;
 
 @Component
 @ComponentScan({"com.packsendme.roadbrewa.category.repository"})
-public class Category_Dao implements ICategory_Dao<Category> {
+public class Category_Dao implements ICrud_Dao<Category> {
 
 	@Autowired
 	ICategory_Repository roadwayManager_Rep; 
