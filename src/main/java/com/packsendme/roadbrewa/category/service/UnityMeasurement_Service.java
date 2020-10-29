@@ -80,18 +80,18 @@ public class UnityMeasurement_Service {
 		}
 	}
 	
-	public ResponseEntity<?> update(String id, UnityMeasurementDto unityDTO) {
+	public ResponseEntity<?> update(String id, UnityMeasurementDto unityDto) {
 		Response<String> responseObj = null;
 		try {
-			Optional<UnityMeasurement> unityData = unityDAO.findOneById(id);
-			if(unityData != null) {
-				UnityMeasurement entity = unityObj.dtoTOentity(unityDTO, unityData.get(), RoadwayManagerConstants.UPDATE_OP_ROADWAY);
+			if(unityDAO.findOneByName(unityDto.unitMeasurement) == null) {
+				Optional<UnityMeasurement> unityData = unityDAO.findOneById(id);
+				UnityMeasurement entity = unityObj.dtoTOentity(unityDto, unityData.get(), RoadwayManagerConstants.UPDATE_OP_ROADWAY);
 				entity = unityDAO.update(entity);
 				responseObj = new Response<String>(0,HttpExceptionPackSend.UPDATE_UNITY_MEASUREMENT.getAction(), entity.id);
 				return new ResponseEntity<>(responseObj, HttpStatus.ACCEPTED);
 			}
 			else {
-				return new ResponseEntity<>(responseObj, HttpStatus.BAD_REQUEST);
+				return new ResponseEntity<>(responseObj, HttpStatus.FOUND);
 			}
 		}
 		catch (Exception e) {
