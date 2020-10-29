@@ -44,7 +44,7 @@ public class Category_Service {
 	public ResponseEntity<?> save(CategoryDto categoryDto) {
 		Response<CategoryDto> responseObj = null;
 		try {
-			Category entity = categoryObj.Dto_TO_Entity(categoryDto, null, RoadwayManagerConstants.ADD_OP_ROADWAY);
+			Category entity = categoryObj.dtoTOentity(categoryDto, null, RoadwayManagerConstants.ADD_OP_ROADWAY);
 			category_DAO.save(entity);
 			responseObj = new Response<CategoryDto>(0,HttpExceptionPackSend.CREATE_ROADWAYBRE.getAction(), categoryDto);
 			return new ResponseEntity<>(responseObj, HttpStatus.OK);
@@ -115,7 +115,7 @@ public class Category_Service {
 			Optional<Category> categoryData = category_DAO.findOneById(id);
 			if(categoryData.isPresent()) {
 				Category entity = categoryData.get(); 
-				entity = categoryObj.Dto_TO_Entity(categoryDto, entity, RoadwayManagerConstants.UPDATE_OP_ROADWAY);
+				entity = categoryObj.dtoTOentity(categoryDto, entity, RoadwayManagerConstants.UPDATE_OP_ROADWAY);
 				entity = category_DAO.update(entity);
 				responseObj = new Response<String>(0,HttpExceptionPackSend.UPDATE_ROADWAY.getAction(), entity.id);
 				return new ResponseEntity<>(responseObj, HttpStatus.ACCEPTED);

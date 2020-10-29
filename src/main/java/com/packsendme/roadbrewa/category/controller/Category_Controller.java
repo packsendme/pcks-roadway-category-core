@@ -80,14 +80,14 @@ public class Category_Controller {
 	***************************************/
 
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@GetMapping("/unitymeasurement")
+	@GetMapping("/category/unitymeasurement")
 	public ResponseEntity<?> getUnityMeasurement(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("country") String country) {	
 		return unityService.findAll(country);
 	}
 
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@PostMapping("/unitymeasurement")
+	@PostMapping("/category/unitymeasurement")
 	public ResponseEntity<?> postUnityMeasurement(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp,
 			@Validated  @RequestBody UnityMeasurementDto unityMeasurement)
@@ -96,7 +96,7 @@ public class Category_Controller {
 	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@DeleteMapping("/unitymeasurement")
+	@DeleteMapping("/category/unitymeasurement")
 	public ResponseEntity<?> deleteUnityMeasurement(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("id") String id)
 	{	
@@ -104,7 +104,7 @@ public class Category_Controller {
 	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@PutMapping("/unitymeasurement")
+	@PutMapping("/category/unitymeasurement")
 	public ResponseEntity<?> putUnityMeasurement(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("id") String id, 
 			@Validated  @RequestBody UnityMeasurementDto unityMeasurement)
