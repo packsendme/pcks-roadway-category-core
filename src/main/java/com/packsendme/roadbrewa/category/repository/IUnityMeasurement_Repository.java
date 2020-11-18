@@ -11,8 +11,8 @@ import com.packsendme.roadbrewa.entity.UnityMeasurement;
 @Repository
 public interface IUnityMeasurement_Repository extends MongoRepository<UnityMeasurement, String>{
 	
-	@Query("{'origin_country' :  {$eq: ?0}}")
-	List<UnityMeasurement> findUnityMeasurementByCountry(String origin_country);
+	@Query("{'identifier' :  {$eq: ?0}}")
+	List<UnityMeasurement> findUnityMeasurementByCountry(String identifierCountry);
 
 	@Query("{'unitMeasurement' :  {$eq: ?0}}")
 	UnityMeasurement findUnityMeasurementByName(String unitMeasurement);

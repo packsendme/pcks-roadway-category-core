@@ -26,7 +26,22 @@ public class UnityMeasurement_Service {
 	private UnityMeasurementDto unityObj = new UnityMeasurementDto();
 
 	
-	public ResponseEntity<?> findAll(String country) {
+	public ResponseEntity<?> findAll() {
+		Response<UnityMeasurementListResponse_Dto> responseObj = null;
+		UnityMeasurementListResponse_Dto unityListDTO_Response = new UnityMeasurementListResponse_Dto();
+		try {
+			unityListDTO_Response.unityMeasurements = unityObj.entityTOdto(unityDAO.findAll());
+			responseObj = new Response<UnityMeasurementListResponse_Dto>(0,HttpExceptionPackSend.CREATED_UNITY_MEASUREMENT.getAction(), unityListDTO_Response);
+			return new ResponseEntity<>(responseObj, HttpStatus.OK);
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			responseObj = new Response<UnityMeasurementListResponse_Dto>(0,HttpExceptionPackSend.CREATED_UNITY_MEASUREMENT.getAction(), null);
+			return new ResponseEntity<>(responseObj, HttpStatus.BAD_REQUEST);
+		}
+	}
+	
+	public ResponseEntity<?> findUnityMeasurementByCountry(String country) {
 		Response<UnityMeasurementListResponse_Dto> responseObj = null;
 		UnityMeasurementListResponse_Dto unityListDTO_Response = new UnityMeasurementListResponse_Dto();
 		try {
@@ -40,6 +55,7 @@ public class UnityMeasurement_Service {
 			return new ResponseEntity<>(responseObj, HttpStatus.BAD_REQUEST);
 		}
 	}
+
 	
 	public ResponseEntity<?> save(UnityMeasurementDto unityDto) {
 		Response<UnityMeasurementDto> responseObj = null;
