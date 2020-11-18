@@ -80,9 +80,9 @@ public class Category_Controller {
 	***************************************/
 
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@GetMapping("/category/unitymeasurement")
+	@GetMapping("/category/unitymeasurement/country")
 	public ResponseEntity<?> getUnityMeasurementByCountry(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
-			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("country") String codcountry) {	
+			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("codecountry") String codcountry) {	
 		return unityService.findUnityMeasurementByCountry(codcountry);
 	}
 	
