@@ -81,7 +81,7 @@ public class Category_Controller {
 
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
 	@GetMapping("/category/unitymeasurement")
-	public ResponseEntity<?> getUnityMeasurement(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
+	public ResponseEntity<?> getUnityMeasurementByCountry(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("country") String codcountry) {	
 		return unityService.findUnityMeasurementByCountry(codcountry);
 	}
