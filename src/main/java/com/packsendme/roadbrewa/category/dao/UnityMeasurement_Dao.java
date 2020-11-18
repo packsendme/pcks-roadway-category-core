@@ -90,8 +90,14 @@ public class UnityMeasurement_Dao implements ICrud_Dao<UnityMeasurement> {
 
 	@Override
 	public List<UnityMeasurement> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			List<UnityMeasurement> entityL = unitMeasurement_Rep.findAll();
+			return entityL;
+		}
+		catch (MongoClientException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	@Override
