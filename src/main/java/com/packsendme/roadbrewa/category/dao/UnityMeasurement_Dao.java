@@ -69,7 +69,7 @@ public class UnityMeasurement_Dao implements ICrud_Dao<UnityMeasurement> {
 	@Override
 	public UnityMeasurement findOneByName(String name) {
 		try {
-			return unitMeasurement_Rep.findUnityMeasurementByName(name);
+			return unitMeasurement_Rep.findUnityMeasurementByTypeUnity(name);
 		}
 		catch (MongoClientException e) {
 			e.printStackTrace();
@@ -102,17 +102,9 @@ public class UnityMeasurement_Dao implements ICrud_Dao<UnityMeasurement> {
 
 	@Override
 	public List<UnityMeasurement> findEntityByParameters(String name) {
-		try {
-			List<UnityMeasurement> entityL = new ArrayList<UnityMeasurement>(); 
-			entityL = unitMeasurement_Rep.findUnityMeasurementByCountry(name);
-			return entityL;
-		}
-		catch (MongoClientException e) {
-			e.printStackTrace();
-			return null;
-		}
+		// TODO Auto-generated method stub
+		return null;
 	}
-
  
 	
 }

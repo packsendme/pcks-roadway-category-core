@@ -11,5 +11,6 @@ public class Category_Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Category_Application.class, args);
 	}
+	
 }
 
