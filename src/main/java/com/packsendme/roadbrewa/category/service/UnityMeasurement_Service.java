@@ -59,7 +59,7 @@ public class UnityMeasurement_Service {
 	public ResponseEntity<?> save(UnityMeasurementDto unityDto) {
 		Response<UnityMeasurementDto> responseObj = null;
 		try {
-			if(unityDAO.findOneByName(unityDto.typeUnity) == null) {
+			if(unityDAO.findOneByName(unityDto.unityType) == null) {
 				UnityMeasurement entity = unityObj.dtoTOentity(unityDto, null, RoadwayManagerConstants.ADD_OP_ROADWAY);
 				unityDAO.save(entity);
 				responseObj = new Response<UnityMeasurementDto>(0,HttpExceptionPackSend.CREATED_UNITY_MEASUREMENT.getAction(), unityDto);
@@ -98,7 +98,7 @@ public class UnityMeasurement_Service {
 	public ResponseEntity<?> update(String id, UnityMeasurementDto unityDto) {
 		Response<String> responseObj = null;
 		try {
-			if(unityDAO.findOneByName(unityDto.typeUnity) == null) {
+			if(unityDAO.findOneByName(unityDto.unityType) == null) {
 				Optional<UnityMeasurement> unityData = unityDAO.findOneById(id);
 				UnityMeasurement entity = unityObj.dtoTOentity(unityDto, unityData.get(), RoadwayManagerConstants.UPDATE_OP_ROADWAY);
 				entity = unityDAO.update(entity);
