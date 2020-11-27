@@ -45,9 +45,15 @@ public class Category_Service {
 		Response<CategoryDto> responseObj = null;
 		try {
 			Category entity = categoryObj.dtoTOentity(categoryDto, null, RoadwayManagerConstants.ADD_OP_ROADWAY);
-			category_DAO.save(entity);
-			responseObj = new Response<CategoryDto>(0,HttpExceptionPackSend.CREATE_ROADWAYBRE.getAction(), categoryDto);
-			return new ResponseEntity<>(responseObj, HttpStatus.OK);
+			if(category_DAO.findOneByName(entity.name_category) == null) {
+				category_DAO.save(entity);
+				responseObj = new Response<CategoryDto>(0,HttpExceptionPackSend.CREATE_ROADWAYBRE.getAction(), categoryDto);
+				return new ResponseEntity<>(responseObj, HttpStatus.OK);
+			}
+			else {
+				responseObj = new Response<CategoryDto>(0,HttpExceptionPackSend.CREATE_ROADWAYBRE.getAction(), categoryDto);
+				return new ResponseEntity<>(responseObj, HttpStatus.FOUND);
+			}
 		}
 		catch (Exception e) {
 			e.printStackTrace();
