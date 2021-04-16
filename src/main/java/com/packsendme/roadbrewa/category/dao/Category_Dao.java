@@ -45,8 +45,7 @@ public class Category_Dao implements ICrud_Dao<Category> {
 	@Override
 	public List<Category> findAll() {
 		try {
-			List<Category> entityL = new ArrayList<Category>(); 
-			entityL = roadwayManager_Rep.findAll();
+			List<Category> entityL = roadwayManager_Rep.findAll();
 			return entityL;
 		}
 		catch (MongoClientException e) {
