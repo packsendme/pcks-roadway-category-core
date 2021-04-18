@@ -14,7 +14,7 @@ public interface ICategory_Repository extends MongoRepository<Category, String>{
 	@Query("{'name_category' :  {$eq: ?0}}")
 	Category findCategoryByName(String category_name);
 	
-	@Query("{'transport.name_category' :  {$eq: ?0}}")
+	@Query("{'transport_name' :  {$eq: ?0}}")
 	List<Category> findCategoryByTransport(String transport);
 	
 }
