@@ -1,4 +1,4 @@
-package com.packsendme.roadbrewa.category.controller;
+package com.packsendme.roadway.category.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.packsendme.roadbrewa.category.service.Category_Service;
-import com.packsendme.roadbrewa.category.service.UnityMeasurement_Service;
-import com.packsendme.roadbrewa.dto.CategoryDto;
-import com.packsendme.roadbrewa.dto.UnityMeasurementDto;
+import com.packsendme.roadway.commons.dto.CategoryDto;
+import com.packsendme.roadway.commons.dto.UnityMeasurementDto;
+import com.packsendme.roadway.category.service.Category_Service;
+import com.packsendme.roadway.category.service.UnityMeasurement_Service;
 
 @RestController
-@RequestMapping("/roadbrewa")
+@RequestMapping("/roadway/category")
 public class Category_Controller {
 
 	
@@ -36,14 +36,14 @@ public class Category_Controller {
 	***************************************/
 
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@GetMapping("/category")
+	@GetMapping("/")
 	public ResponseEntity<?> getCategory(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp) {	
 		return categoryService.findAll();
 	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@GetMapping("/category/transport/{transport}")
+	@GetMapping("/transport/{transport}")
 	public ResponseEntity<?> getCategory(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp,
 			@Validated  @PathVariable("transport") String transport) {	
@@ -51,7 +51,7 @@ public class Category_Controller {
 	}
 
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@PostMapping("/category")
+	@PostMapping("/")
 	public ResponseEntity<?> postCategory(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp,
 			@Validated  @RequestBody CategoryDto category){	
@@ -59,7 +59,7 @@ public class Category_Controller {
 	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@DeleteMapping("/category")
+	@DeleteMapping("/")
 	public ResponseEntity<?> deleteCategory(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("id") String id)
 	{	
@@ -67,7 +67,7 @@ public class Category_Controller {
 	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@PutMapping("/category")
+	@PutMapping("/")
 	public ResponseEntity<?> putCategory(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("id") String id, 
 			@Validated  @RequestBody CategoryDto category)
@@ -80,21 +80,21 @@ public class Category_Controller {
 	***************************************/
 
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@GetMapping("/category/unitymeasurement/type")
+	@GetMapping("/unitymeasurement/type")
 	public ResponseEntity<?> getUnityMeasurementByCountry(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("unity") String unity) {	
 		return unityService.findUnityMeasurementByTypUnity(unity);
 	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@GetMapping("/category/unitymeasurement")
+	@GetMapping("/unitymeasurement")
 	public ResponseEntity<?> getUnityMeasurement(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp) {	
 		return unityService.findAll();
 	}
 
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@PostMapping("/category/unitymeasurement")
+	@PostMapping("/unitymeasurement")
 	public ResponseEntity<?> postUnityMeasurement(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp,
 			@Validated  @RequestBody UnityMeasurementDto unityMeasurement)
@@ -103,7 +103,7 @@ public class Category_Controller {
 	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@DeleteMapping("/category/unitymeasurement")
+	@DeleteMapping("/unitymeasurement")
 	public ResponseEntity<?> deleteUnityMeasurement(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("id") String id)
 	{	
@@ -111,7 +111,7 @@ public class Category_Controller {
 	}
 	
 	@CrossOrigin(origins = "*", allowedHeaders = "*")
-	@PutMapping("/category/unitymeasurement")
+	@PutMapping("/unitymeasurement")
 	public ResponseEntity<?> putUnityMeasurement(@RequestHeader("isoLanguageCode") String isoLanguageCode,@RequestHeader("isoCountryCode") String isoCountryCode,
 			@RequestHeader("isoCurrencyCode") String isoCurrencyCode,@RequestHeader("originApp") String originApp, @Validated @RequestParam("id") String id, 
 			@Validated  @RequestBody UnityMeasurementDto unityMeasurement)

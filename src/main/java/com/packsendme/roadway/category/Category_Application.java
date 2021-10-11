@@ -1,4 +1,4 @@
-package com.packsendme.roadbrewa.category;
+package com.packsendme.roadway.category;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

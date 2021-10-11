@@ -1,6 +1,5 @@
-package com.packsendme.roadbrewa.category.dao;
+package com.packsendme.roadway.category.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,11 +8,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import com.mongodb.MongoClientException;
-import com.packsendme.roadbrewa.category.repository.ICategory_Repository;
-import com.packsendme.roadbrewa.entity.Category;
+import com.packsendme.roadway.commons.entity.Category;
+import com.packsendme.roadway.category.repository.ICategory_Repository;
 
 @Component
-@ComponentScan({"com.packsendme.roadbrewa.category.repository"})
+@ComponentScan({"com.packsendme.roadway.category.repository"})
 public class Category_Dao implements ICrud_Dao<Category> {
 
 	@Autowired

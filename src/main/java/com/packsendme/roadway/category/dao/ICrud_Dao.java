@@ -1,4 +1,4 @@
-package com.packsendme.roadbrewa.category.dao;
+package com.packsendme.roadway.category.dao;
 
 import java.util.List;
 import java.util.Optional;

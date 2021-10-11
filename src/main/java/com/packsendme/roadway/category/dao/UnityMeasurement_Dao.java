@@ -1,6 +1,5 @@
-package com.packsendme.roadbrewa.category.dao;
+package com.packsendme.roadway.category.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,11 +8,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import com.mongodb.MongoClientException;
-import com.packsendme.roadbrewa.category.repository.IUnityMeasurement_Repository;
-import com.packsendme.roadbrewa.entity.UnityMeasurement;
+import com.packsendme.roadway.commons.entity.UnityMeasurement;
+import com.packsendme.roadway.category.repository.IUnityMeasurement_Repository;
 
 @Component
-@ComponentScan({"com.packsendme.microservice.manager.roadway.repository"})
+@ComponentScan({"com.packsendme.roadway.category.repository"})
 public class UnityMeasurement_Dao implements ICrud_Dao<UnityMeasurement> {
 
 	@Autowired

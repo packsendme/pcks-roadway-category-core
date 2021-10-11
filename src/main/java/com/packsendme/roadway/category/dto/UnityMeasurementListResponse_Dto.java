@@ -1,10 +1,10 @@
-package com.packsendme.roadbrewa.category.dto;
+package com.packsendme.roadway.category.dto;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.packsendme.roadbrewa.dto.UnityMeasurementDto;
+import com.packsendme.roadway.commons.dto.UnityMeasurementDto;
 
 import lombok.Getter;
 import lombok.Setter;

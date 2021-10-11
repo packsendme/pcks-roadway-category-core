@@ -1,4 +1,4 @@
-package com.packsendme.roadbrewa.category.service;
+package com.packsendme.roadway.category.service;
 
 import java.util.Optional;
 
@@ -8,16 +8,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.packsendme.lib.common.constants.generic.HttpExceptionPackSend;
-import com.packsendme.lib.common.response.Response;
-import com.packsendme.roadbrewa.category.dao.UnityMeasurement_Dao;
-import com.packsendme.roadbrewa.category.dto.UnityMeasurementListResponse_Dto;
-import com.packsendme.roadbrewa.component.RoadwayManagerConstants;
-import com.packsendme.roadbrewa.dto.UnityMeasurementDto;
-import com.packsendme.roadbrewa.entity.UnityMeasurement;
+import com.packsendme.cross.common.constants.generic.HttpExceptionPackSend;
+import com.packsendme.cross.common.response.Response;
+
+import com.packsendme.roadway.commons.constants.RoadwayManagerConstants;
+import com.packsendme.roadway.commons.dto.UnityMeasurementDto;
+import com.packsendme.roadway.commons.entity.UnityMeasurement;
+import com.packsendme.roadway.category.dao.UnityMeasurement_Dao;
+import com.packsendme.roadway.category.dto.UnityMeasurementListResponse_Dto;
 
 @Service
-@ComponentScan({"com.packsendme.roadbrewa.category.dao"})
+@ComponentScan({"com.packsendme.roadway.category.dao"})
 public class UnityMeasurement_Service {
 
 	@Autowired
